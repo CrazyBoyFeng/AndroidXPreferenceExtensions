@@ -16,7 +16,7 @@ class NumberPickerPreference @JvmOverloads constructor(
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
-    private var value: Int = 0
+    var value: Int = 0
         set(value) {
             val wasBlocking = shouldDisableDependents()
             field = value
