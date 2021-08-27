@@ -12,6 +12,12 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        maven { setUrl("https://jitpack.io") }
+    }
+}
+
 tasks.wrapper{
     enabled = false
     gradleVersion = "7.1.1"
