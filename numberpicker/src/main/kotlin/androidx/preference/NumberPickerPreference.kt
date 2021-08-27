@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.AttributeSet
+import crazyboyfeng.android.preference.NumberPickerPreferenceDialogFragmentCompat
 import crazyboyfeng.android.preference.numberpicker.R
 
 class NumberPickerPreference @JvmOverloads constructor(
@@ -13,6 +14,15 @@ class NumberPickerPreference @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.dialogPreferenceStyle,
     defStyleRes: Int = 0
 ) : DialogPreference(context, attrs, defStyleAttr, defStyleRes) {
+    companion object {
+        init {
+            crazyboyfeng.android.preference.PreferenceFragmentCompat.registerPreferenceFragment(
+                NumberPickerPreference::class.java,
+                NumberPickerPreferenceDialogFragmentCompat::class.java
+            )
+        }
+    }
+
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
