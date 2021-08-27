@@ -15,7 +15,6 @@ class NumberPickerPreference @JvmOverloads constructor(
 ) : DialogPreference(context, attrs, defStyleAttr, defStyleRes) {
     var minValue: Int
     var maxValue: Int
-    var stepValue: Int
     var wrapSelectorWheel: Boolean
     private var value: Int = 0
         set(value) {
@@ -68,7 +67,6 @@ class NumberPickerPreference @JvmOverloads constructor(
         )
         minValue = typedArray.getInt(R.styleable.NumberPickerPreference_minValue, 0)
         maxValue = typedArray.getInt(R.styleable.NumberPickerPreference_maxValue, 100)
-        stepValue = typedArray.getInt(R.styleable.NumberPickerPreference_stepValue, 1)
         wrapSelectorWheel =
             typedArray.getBoolean(R.styleable.NumberPickerPreference_wrapSelectorWheel, true)
         typedArray.recycle()
@@ -80,14 +78,12 @@ class NumberPickerPreference @JvmOverloads constructor(
         //TODO need save state?
 //        var minValue: Int = 0
 //        var maxValue: Int = 100
-//        var stepValue: Int = 1
 //        var wrapSelectorWheel = false
 
         constructor(source: Parcel) : super(source) {
             value = source.readInt()
 //            minValue = source.readInt()
 //            maxValue = source.readInt()
-//            stepValue = source.readInt()
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 //                wrapSelectorWheel = source.readBoolean()
 //            }
@@ -100,7 +96,6 @@ class NumberPickerPreference @JvmOverloads constructor(
             dest.writeInt(value)
 //            dest.writeInt(minValue)
 //            dest.writeInt(maxValue)
-//            dest.writeInt(stepValue)
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 //                dest.writeBoolean(wrapSelectorWheel)
 //            }
