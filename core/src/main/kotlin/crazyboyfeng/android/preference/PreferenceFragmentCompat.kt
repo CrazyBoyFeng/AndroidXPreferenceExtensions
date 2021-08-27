@@ -1,4 +1,4 @@
-package com.github.crazyboyfeng.android.preference
+package crazyboyfeng.android.preference
 
 import androidx.preference.DialogPreference
 import androidx.preference.Preference
