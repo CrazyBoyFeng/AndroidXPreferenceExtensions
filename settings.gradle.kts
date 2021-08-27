@@ -10,3 +10,4 @@ dependencyResolutionManagement.repositories {
 
 rootProject.name = "AndroidXPreferenceExtensions"
 include(":core")
+include(":numberpicker")
