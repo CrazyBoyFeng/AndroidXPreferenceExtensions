@@ -19,7 +19,7 @@ allprojects {
 }
 
 ext["sdkVersion"] = 30
-ext["version"] = "SNAPSHOT"
+//ext["version"] = "SNAPSHOT"
 
 tasks.wrapper{
     enabled = false

@@ -12,7 +12,7 @@ android {
     compileSdk = rootProject.ext["sdkVersion"] as Int
     defaultConfig {
         targetSdk = rootProject.ext["sdkVersion"] as Int
-        version = rootProject.ext["version"]!!
+//        version = rootProject.ext["version"]!!
 //        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -27,8 +27,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility=JavaVersion.VERSION_1_8
-                targetCompatibility=JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions { jvmTarget = "1.8" }
 }

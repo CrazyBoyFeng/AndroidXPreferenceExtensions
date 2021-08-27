@@ -12,7 +12,7 @@ android {
     compileSdk = rootProject.ext["sdkVersion"] as Int
     defaultConfig {
         targetSdk = rootProject.ext["sdkVersion"] as Int
-        version = rootProject.ext["version"]!!
+//        version = rootProject.ext["version"]!!
 //        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
