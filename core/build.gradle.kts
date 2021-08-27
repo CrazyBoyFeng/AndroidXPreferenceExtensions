@@ -9,11 +9,10 @@ android {
      * compileSdk doesn't make sense,
      * just generally be consistent with targetSdk.
      */
-    compileSdk = 30
+    compileSdk = rootProject.ext["sdkVersion"] as Int
     defaultConfig {
-//        minSdk = 14
-        targetSdk = 30
-        version="0.0.1"
+        targetSdk = rootProject.ext["sdkVersion"] as Int
+        version = rootProject.ext["version"]!!
 //        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -28,8 +27,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility=JavaVersion.VERSION_1_8
-                targetCompatibility=JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions { jvmTarget = "1.8" }
 }
