@@ -9,7 +9,7 @@ import crazyboyfeng.android.preference.NumberPickerPreferenceDialogFragmentCompa
 import crazyboyfeng.android.preference.numberpicker.R
 import java.util.*
 
-class NumberPickerPreference constructor(
+class NumberPickerPreference @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.dialogPreferenceStyle,

@@ -6,7 +6,7 @@ import crazyboyfeng.android.preference.EditTextPreferenceDialogFragmentCompatPlu
 import crazyboyfeng.android.preference.edittext.R
 import java.util.*
 
-class EditTextPreferencePlus(
+class EditTextPreferencePlus @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.editTextPreferenceStyle,
