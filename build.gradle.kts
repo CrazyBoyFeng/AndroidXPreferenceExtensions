@@ -14,8 +14,3 @@ buildscript {
 
 ext["sdkVersion"] = 30
 //ext["version"] = "SNAPSHOT"
-
-tasks.wrapper{
-    enabled = false
-    gradleVersion = "7.1.1"
-}
