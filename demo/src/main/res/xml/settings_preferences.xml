@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
     <NumberPickerPreference
         app:key="numberpicker"
-        android:summary="summary"
-        app:title="title" />
+        app:maxValue="20"
+        app:minValue="10"
+        app:summary="%dsheep"
+        app:title="title"
+        app:wrapSelectorWheel="false" />
 </PreferenceScreen>
