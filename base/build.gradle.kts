@@ -51,6 +51,7 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>(project.name) {
+                from(components["release"])
                 groupId = rootProject.group as String?
                 artifactId = project.name
                 version = rootProject.version as String?
