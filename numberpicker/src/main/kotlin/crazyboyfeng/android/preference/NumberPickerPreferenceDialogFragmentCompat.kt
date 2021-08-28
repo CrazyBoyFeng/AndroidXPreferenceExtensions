@@ -25,7 +25,6 @@ class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompa
     }
 
     override fun onCreateDialogView(context: Context?): View {
-//        return LinearLayout(context)//TODO
         numberPicker = NumberPicker(context)
         return numberPicker as NumberPicker
     }
