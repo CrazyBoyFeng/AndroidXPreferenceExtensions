@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.NumberPicker
 import androidx.preference.NumberPickerPreference
 
-@Suppress("unused")
 class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompatAbstract() {
     companion object {
         private const val SAVE_STATE_VALUE = "NumberPickerDialogPreferenceFragment.value"
