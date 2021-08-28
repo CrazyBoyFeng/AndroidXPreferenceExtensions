@@ -14,12 +14,13 @@ Android library: Extensions of AndroidX Preference.
         app:title="edittext" />
     ...
     <NumberPickerPreference
+        app:formatSummary="true"
         app:key="numberpicker"
         app:maxValue="20"
         app:minValue="10"
         app:summary="%dsheep"
-        app:title="title"
-        app:wrapSelectorWheel="false" />
+        app:title="numberpicker"
+        app:wrapSelectorWheel="true" />
     ...
 </PreferenceScreen>
 ```
