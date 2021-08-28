@@ -24,8 +24,8 @@ Android library: Extensions of AndroidX Preference.
 </PreferenceScreen>
 ```
 2. Fragment
-```kotlin
+```java
 import crazyboyfeng.android.preference.PreferenceFragmentCompat
-class MyPreferenceFragment : PreferenceFragmentCompat() {}
+class MyPreferenceFragment extends PreferenceFragmentCompat {}
 ```
 
