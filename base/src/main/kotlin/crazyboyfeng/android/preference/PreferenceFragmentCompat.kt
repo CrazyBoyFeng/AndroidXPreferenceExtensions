@@ -8,20 +8,20 @@ abstract class PreferenceFragmentCompat : androidx.preference.PreferenceFragment
         private const val DIALOG_FRAGMENT_TAG =
             "androidx.preference.PreferenceFragment.DIALOG"
         private val DIALOG_PREFERENCE_FRAGMENT_TYPES =
-            mutableMapOf<Class<out DialogPreference>, Class<out PreferenceDialogFragmentCompatAbstract>>()
+            mutableMapOf<Class<out DialogPreference>, Class<out PreferenceDialogFragmentCompatInterface>>()
 
         /**
-         * Sets a [DialogPreference] to use the supplied [PreferenceDialogFragmentCompatAbstract] as a dialog.
+         * Sets a [DialogPreference] to use the supplied [PreferenceDialogFragmentCompatInterface] as a dialog.
          *
          * @param dialogPreferenceClass the [DialogPreference] class to be used
-         * @param preferenceDialogFragmentCompatAbstractClass the [PreferenceDialogFragmentCompatAbstract] class to be instantiated, displayed and added
+         * @param preferenceDialogFragmentCompatInterfaceClass the [PreferenceDialogFragmentCompatInterface] class to be instantiated, displayed and added
          */
         fun registerPreferenceFragment(
             dialogPreferenceClass: Class<out DialogPreference>,
-            preferenceDialogFragmentCompatAbstractClass: Class<out PreferenceDialogFragmentCompatAbstract>
+            preferenceDialogFragmentCompatInterfaceClass: Class<out PreferenceDialogFragmentCompatInterface>
         ) {
             DIALOG_PREFERENCE_FRAGMENT_TYPES[dialogPreferenceClass] =
-                preferenceDialogFragmentCompatAbstractClass
+                preferenceDialogFragmentCompatInterfaceClass
         }
     }
 
@@ -32,7 +32,7 @@ abstract class PreferenceFragmentCompat : androidx.preference.PreferenceFragment
             try {
                 val fragment =
                     DIALOG_PREFERENCE_FRAGMENT_TYPES[preference.javaClass]!!.newInstance()
-                fragment.initialKey(preference.key)
+                fragment.initial(preference.key)
                 fragment.setTargetFragment(this, 0)
                 fragment.show(parentFragmentManager, DIALOG_FRAGMENT_TAG)
             } catch (e: InstantiationException) {
