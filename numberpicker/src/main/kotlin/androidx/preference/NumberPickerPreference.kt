@@ -78,7 +78,7 @@ class NumberPickerPreference @JvmOverloads constructor(
         minValue = typedArray.getInt(R.styleable.NumberPickerPreference_minValue, 0)
         maxValue = typedArray.getInt(R.styleable.NumberPickerPreference_maxValue, 100)
         wrapSelectorWheel =
-            typedArray.getBoolean(R.styleable.NumberPickerPreference_wrapSelectorWheel, true)
+            typedArray.getBoolean(R.styleable.NumberPickerPreference_wrapSelectorWheel, false)
         typedArray.recycle()
         //todo summaryprovider
     }
