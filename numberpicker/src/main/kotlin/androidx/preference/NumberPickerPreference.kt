@@ -9,7 +9,7 @@ import crazyboyfeng.android.preference.NumberPickerPreferenceDialogFragmentCompa
 import crazyboyfeng.android.preference.numberpicker.R
 import java.util.*
 
-class NumberPickerPreference @JvmOverloads constructor(
+class NumberPickerPreference constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.dialogPreferenceStyle,
@@ -27,6 +27,7 @@ class NumberPickerPreference @JvmOverloads constructor(
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
+    var formatSummary: Boolean
     var value: Int = 0
         set(value) {
             val wasBlocking = shouldDisableDependents()
@@ -45,6 +46,7 @@ class NumberPickerPreference @JvmOverloads constructor(
 
     override fun getSummary(): CharSequence {
         val summary = super.getSummary()
+        if (!formatSummary) return summary
         if (summary.isNullOrEmpty()) return summary
         return try {
             summary.toString().format(value)
@@ -90,6 +92,8 @@ class NumberPickerPreference @JvmOverloads constructor(
         maxValue = typedArray.getInt(R.styleable.NumberPickerPreference_maxValue, 100)
         wrapSelectorWheel =
             typedArray.getBoolean(R.styleable.NumberPickerPreference_wrapSelectorWheel, false)
+        formatSummary =
+            typedArray.getBoolean(R.styleable.NumberPickerPreference_formatSummary, false)
         typedArray.recycle()
     }
 
