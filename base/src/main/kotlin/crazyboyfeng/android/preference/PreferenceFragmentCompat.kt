@@ -27,7 +27,7 @@ abstract class PreferenceFragmentCompat : androidx.preference.PreferenceFragment
 
     override fun onDisplayPreferenceDialog(preference: Preference) {
         if (preference !is DialogPreference) return
-        parentFragmentManager.findFragmentByTag(DIALOG_FRAGMENT_TAG) ?: return
+        if (parentFragmentManager.findFragmentByTag(DIALOG_FRAGMENT_TAG) != null) return
         if (DIALOG_PREFERENCE_FRAGMENT_TYPES.containsKey(preference.javaClass)) {
             try {
                 val fragment =
