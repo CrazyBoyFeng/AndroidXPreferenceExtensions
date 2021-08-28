@@ -43,7 +43,7 @@ class NumberPickerPreference @JvmOverloads constructor(
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        value = getPersistedInt(defaultValue as Int)
+        value = getPersistedInt((defaultValue ?: 0) as Int)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
