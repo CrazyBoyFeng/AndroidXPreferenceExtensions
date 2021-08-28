@@ -16,7 +16,8 @@ class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompa
     private var value: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        value = savedInstanceState?.getInt(SAVE_STATE_VALUE) ?: getNumberPickerPreference().value
+        val numberPickerPreference = preference as NumberPickerPreference
+        value = savedInstanceState?.getInt(SAVE_STATE_VALUE) ?: numberPickerPreference.value
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -31,23 +32,20 @@ class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompa
 
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
+        val numberPickerPreference = preference as NumberPickerPreference
         numberPicker!!.requestFocus()
-        numberPicker!!.minValue = getNumberPickerPreference().minValue
-        numberPicker!!.maxValue = getNumberPickerPreference().maxValue
-        numberPicker!!.wrapSelectorWheel = getNumberPickerPreference().wrapSelectorWheel
+        numberPicker!!.minValue = numberPickerPreference.minValue
+        numberPicker!!.maxValue = numberPickerPreference.maxValue
+        numberPicker!!.wrapSelectorWheel = numberPickerPreference.wrapSelectorWheel
         numberPicker!!.value = value
-    }
-
-    private fun getNumberPickerPreference(): NumberPickerPreference {
-        return preference as NumberPickerPreference
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {
         if (positiveResult) {
             val value = numberPicker!!.value
-            val preference = getNumberPickerPreference()
-            if (preference.callChangeListener(value)) {
-                preference.value = value
+            val numberPickerPreference = preference as NumberPickerPreference
+            if (numberPickerPreference.callChangeListener(value)) {
+                numberPickerPreference.value = value
             }
         }
     }
