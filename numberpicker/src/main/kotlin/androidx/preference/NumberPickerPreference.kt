@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.os.Parcel
 import android.os.Parcelable
-import android.text.TextUtils
 import android.util.AttributeSet
 import crazyboyfeng.android.preference.NumberPickerPreferenceDialogFragmentCompat
 import crazyboyfeng.android.preference.numberpicker.R
@@ -45,10 +44,10 @@ class NumberPickerPreference @JvmOverloads constructor(
         return a.getInt(index, minValue)
     }
 
-    override fun getSummary(): CharSequence {
+    override fun getSummary(): CharSequence? {
         val summary = super.getSummary()
         if (!formatSummary) return summary
-        if (TextUtils.isEmpty(summary)) return summary
+        if (summary.isNullOrEmpty()) return summary
         return try {
             summary.toString().format(value)
         } catch (e: IllegalFormatException) {

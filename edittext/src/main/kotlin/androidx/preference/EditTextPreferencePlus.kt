@@ -1,7 +1,6 @@
 package androidx.preference
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import crazyboyfeng.android.preference.EditTextPreferenceDialogFragmentCompatPlus
 import crazyboyfeng.android.preference.edittext.R
@@ -23,10 +22,10 @@ class EditTextPreferencePlus @JvmOverloads constructor(
     }
 
     var formatSummary: Boolean
-    override fun getSummary(): CharSequence {
+    override fun getSummary(): CharSequence? {
         val summary = super.getSummary()
         if (!formatSummary) return summary
-        if (TextUtils.isEmpty(summary)) return summary
+        if (summary.isNullOrEmpty()) return summary
         return try {
             summary.toString().format(text)
         } catch (e: IllegalFormatException) {
