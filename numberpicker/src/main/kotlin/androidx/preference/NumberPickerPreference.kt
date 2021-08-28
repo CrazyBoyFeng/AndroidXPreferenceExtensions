@@ -7,6 +7,7 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import crazyboyfeng.android.preference.NumberPickerPreferenceDialogFragmentCompat
 import crazyboyfeng.android.preference.numberpicker.R
+import java.util.*
 
 class NumberPickerPreference @JvmOverloads constructor(
     context: Context,
@@ -40,6 +41,16 @@ class NumberPickerPreference @JvmOverloads constructor(
 
     override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
         return a.getInt(index, if (minValue > 0) minValue else 0)
+    }
+
+    override fun getSummary(): CharSequence {
+        val summary = super.getSummary()
+        if (summary.isNullOrEmpty()) return summary
+        return try {
+            summary.toString().format(value)
+        } catch (e: IllegalFormatException) {
+            summary
+        }
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
@@ -80,7 +91,6 @@ class NumberPickerPreference @JvmOverloads constructor(
         wrapSelectorWheel =
             typedArray.getBoolean(R.styleable.NumberPickerPreference_wrapSelectorWheel, false)
         typedArray.recycle()
-        //todo summaryprovider
     }
 
     private class SavedState(superState: Parcelable?) : BaseSavedState(superState) {
