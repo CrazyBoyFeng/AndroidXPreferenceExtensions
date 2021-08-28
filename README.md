@@ -7,6 +7,12 @@ Android library: Extensions of AndroidX Preference.
 ```xml
 <PreferenceScreen>
     ...
+    <EditTextPreferencePlus
+        app:formatSummary="true"
+        app:key="edittext"
+        app:summary="text is %s!"
+        app:title="edittext" />
+    ...
     <NumberPickerPreference
         app:key="numberpicker"
         app:maxValue="20"
@@ -20,13 +26,6 @@ Android library: Extensions of AndroidX Preference.
 2. Fragment
 ```kotlin
 import crazyboyfeng.android.preference.PreferenceFragmentCompat
-class MyPreferenceFragment : PreferenceFragmentCompat() {
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.settings_preferences, rootKey)
-        // val numberPickerPreference = findPreference<NumberPickerPreference>("numberpicker")
-        // numberPickerPreference?.minValue = 1
-        // numberPickerPreference?.maxValue = 15
-        // numberPickerPreference?.wrapSelectorWheel = true
-    }
-}
+class MyPreferenceFragment : PreferenceFragmentCompat() {}
 ```
+
