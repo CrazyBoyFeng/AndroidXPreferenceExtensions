@@ -12,12 +12,6 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        maven { setUrl("https://jitpack.io") }
-    }
-}
-
 ext["sdkVersion"] = 30
 //ext["version"] = "SNAPSHOT"
 
