@@ -37,6 +37,11 @@ class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompa
         numberPicker!!.minValue = numberPickerPreference.minValue
         numberPicker!!.maxValue = numberPickerPreference.maxValue
         numberPicker!!.wrapSelectorWheel = numberPickerPreference.wrapSelectorWheel
+        if (value > numberPicker!!.maxValue) {
+            value = numberPicker!!.maxValue
+        } else if (value < numberPicker!!.minValue) {
+            value = numberPicker!!.minValue
+        }
         numberPicker!!.value = value
     }
 

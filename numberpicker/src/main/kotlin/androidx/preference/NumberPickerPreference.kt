@@ -41,7 +41,7 @@ class NumberPickerPreference @JvmOverloads constructor(
         }
 
     override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
-        return a.getInt(index, if (minValue > 0) minValue else 0)
+        return a.getInt(index, minValue)
     }
 
     override fun getSummary(): CharSequence {
@@ -56,7 +56,7 @@ class NumberPickerPreference @JvmOverloads constructor(
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        value = getPersistedInt((defaultValue ?: 0) as Int)
+        value = getPersistedInt((defaultValue ?: minValue) as Int)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
@@ -99,19 +99,11 @@ class NumberPickerPreference @JvmOverloads constructor(
 
     private class SavedState(superState: Parcelable?) : BaseSavedState(superState) {
         var value: Int = 0
-        //TODO need save state?
-//        var minValue: Int = 0
-//        var maxValue: Int = 100
-//        var wrapSelectorWheel = false
+        //TODO need save other state?
 
         override fun writeToParcel(dest: Parcel, flags: Int) {
             super.writeToParcel(dest, flags)
             dest.writeInt(value)
-//            dest.writeInt(minValue)
-//            dest.writeInt(maxValue)
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//                dest.writeBoolean(wrapSelectorWheel)
-//            }
         }
     }
 }
