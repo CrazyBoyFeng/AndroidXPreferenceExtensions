@@ -11,6 +11,7 @@ android {
      */
     compileSdk = rootProject.ext["sdkVersion"] as Int
     defaultConfig {
+        minSdk = 14
         targetSdk = rootProject.ext["sdkVersion"] as Int
 //        version = rootProject.ext["version"]!!
 //        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
