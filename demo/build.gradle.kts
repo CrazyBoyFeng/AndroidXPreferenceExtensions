@@ -9,13 +9,13 @@ android {
      * compileSdk doesn't make sense,
      * just generally be consistent with targetSdk.
      */
-    compileSdk = 30
+    compileSdk = rootProject.ext["sdkVersion"] as Int
     defaultConfig {
-        applicationId = "crazyboyfeng.android.preference.demo"
+        applicationId = "${rootProject.group}.${project.name}"
         minSdk = 14
-        targetSdk = 30
+        targetSdk = rootProject.ext["sdkVersion"] as Int
         versionCode = 1
-        versionName = "SNAPSHOT"
+        versionName = rootProject.version.toString()
 //        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
 //    buildFeatures { viewBinding = true }
