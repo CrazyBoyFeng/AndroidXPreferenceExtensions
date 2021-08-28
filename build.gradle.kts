@@ -12,5 +12,6 @@ buildscript {
     }
 }
 
+group = "crazyboyfeng.android.preference"
+version = "SNAPSHOT"
 ext["sdkVersion"] = 30
-//ext["version"] = "SNAPSHOT"
