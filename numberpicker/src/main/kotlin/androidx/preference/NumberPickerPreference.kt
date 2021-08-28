@@ -83,23 +83,12 @@ class NumberPickerPreference @JvmOverloads constructor(
         //todo summaryprovider
     }
 
-    private class SavedState : BaseSavedState {
+    private class SavedState(superState: Parcelable?) : BaseSavedState(superState) {
         var value: Int = 0
         //TODO need save state?
 //        var minValue: Int = 0
 //        var maxValue: Int = 100
 //        var wrapSelectorWheel = false
-
-        constructor(source: Parcel) : super(source) {
-            value = source.readInt()
-//            minValue = source.readInt()
-//            maxValue = source.readInt()
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//                wrapSelectorWheel = source.readBoolean()
-//            }
-        }
-
-        constructor(superState: Parcelable?) : super(superState)
 
         override fun writeToParcel(dest: Parcel, flags: Int) {
             super.writeToParcel(dest, flags)
@@ -109,15 +98,6 @@ class NumberPickerPreference @JvmOverloads constructor(
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 //                dest.writeBoolean(wrapSelectorWheel)
 //            }
-        }
-
-        companion object {
-            @JvmField
-            val CREATOR: Parcelable.Creator<SavedState?> = object :
-                Parcelable.Creator<SavedState?> {
-                override fun createFromParcel(`in`: Parcel): SavedState = SavedState(`in`)
-                override fun newArray(size: Int): Array<SavedState?> = arrayOfNulls(size)
-            }
         }
     }
 }
