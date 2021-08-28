@@ -11,5 +11,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         numberPickerPreference?.minValue = 1
         numberPickerPreference?.maxValue = 15
         numberPickerPreference?.wrapSelectorWheel = true
+        numberPickerPreference?.formatSummary = true
     }
 }
