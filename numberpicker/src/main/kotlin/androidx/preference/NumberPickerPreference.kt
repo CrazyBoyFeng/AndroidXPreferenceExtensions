@@ -95,6 +95,9 @@ class NumberPickerPreference @JvmOverloads constructor(
         formatSummary =
             typedArray.getBoolean(R.styleable.NumberPickerPreference_formatSummary, false)
         typedArray.recycle()
+        if (dialogLayoutResource == 0) {
+            dialogLayoutResource = R.layout.preference_dialog_numberpicker
+        }
     }
 
     private class SavedState(superState: Parcelable?) : BaseSavedState(superState) {
