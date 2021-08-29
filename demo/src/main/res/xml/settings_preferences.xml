@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?><!--suppress AndroidElementNotAllowed -->
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
     <EditTextPreferencePlus
+        app:dialogMessage="dialogMessage"
         app:formatSummary="true"
         app:key="edittext"
         app:summary="text is %s!"
         app:title="edittext" />
     <NumberPickerPreference
+        app:dialogMessage="dialogMessage"
         app:formatSummary="true"
         app:key="numberpicker"
         app:maxValue="20"
