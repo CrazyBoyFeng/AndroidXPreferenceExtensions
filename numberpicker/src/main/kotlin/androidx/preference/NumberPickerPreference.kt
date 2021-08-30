@@ -61,8 +61,18 @@ class NumberPickerPreference @JvmOverloads constructor(
             notifyChanged()
         }
 
-    override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
-        return a.getInt(index, minValue)
+    private fun checkDefaultValue(defValue: Int) = when {
+        defValue < minValue -> minValue
+        defValue > maxValue -> maxValue
+        else -> defValue
+    }
+
+    override fun onGetDefaultValue(a: TypedArray, index: Int): Any =
+        checkDefaultValue(a.getInt(index, 0))
+
+    override fun onSetInitialValue(defaultValue: Any?) {
+        val defValue= (defaultValue?:0) as Int
+        value = getPersistedInt(checkDefaultValue(defValue))
     }
 
     override fun onSaveInstanceState(): Parcelable? {
