@@ -21,15 +21,21 @@ class EditTextPreferencePlus @JvmOverloads constructor(
         }
     }
 
+    private var mSummary: CharSequence?
     var formatSummary: Boolean
     override fun getSummary(): CharSequence? {
-        val summary = super.getSummary()
-        if (!formatSummary) return summary
-        if (summary.isNullOrEmpty()) return summary
+        val superSummary = super.getSummary()
+        if (!formatSummary || mSummary == null) {
+            return superSummary
+        }//formatSummary
+        val output = if (summaryProvider == null) text else superSummary
+        if (output == null) {
+            return output
+        }//formatSummaryValue
         return try {
-            summary.toString().format(text)
+            mSummary.toString().format(output)
         } catch (e: IllegalFormatException) {
-            summary
+            superSummary
         }
     }
 
@@ -42,6 +48,7 @@ class EditTextPreferencePlus @JvmOverloads constructor(
         )
         formatSummary =
             typedArray.getBoolean(R.styleable.EditTextPreferencePlus_formatSummary, false)
+        mSummary = typedArray.getString(R.styleable.Preference_summary)
         typedArray.recycle()
     }
 }

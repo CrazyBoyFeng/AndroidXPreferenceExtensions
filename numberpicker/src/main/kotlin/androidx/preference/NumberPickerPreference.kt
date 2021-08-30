@@ -24,6 +24,7 @@ class NumberPickerPreference @JvmOverloads constructor(
         }
     }
 
+    private var mSummary: CharSequence?
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
@@ -45,13 +46,18 @@ class NumberPickerPreference @JvmOverloads constructor(
     }
 
     override fun getSummary(): CharSequence? {
-        val summary = super.getSummary()
-        if (!formatSummary) return summary
-        if (summary.isNullOrEmpty()) return summary
+        val superSummary = super.getSummary()
+        if (!formatSummary || mSummary == null) {
+            return superSummary
+        }//formatSummary
+        val output: Any? = if (summaryProvider == null) value else superSummary
+        if (output == null) {
+            return output
+        }//formatSummaryValue
         return try {
-            summary.toString().format(value)
+            mSummary.toString().format(output)
         } catch (e: IllegalFormatException) {
-            summary
+            superSummary
         }
     }
 
@@ -94,6 +100,7 @@ class NumberPickerPreference @JvmOverloads constructor(
             typedArray.getBoolean(R.styleable.NumberPickerPreference_wrapSelectorWheel, false)
         formatSummary =
             typedArray.getBoolean(R.styleable.NumberPickerPreference_formatSummary, false)
+        mSummary = typedArray.getString(R.styleable.Preference_summary)
         typedArray.recycle()
         if (dialogLayoutResource == 0) {
             dialogLayoutResource = R.layout.preference_dialog_numberpicker
