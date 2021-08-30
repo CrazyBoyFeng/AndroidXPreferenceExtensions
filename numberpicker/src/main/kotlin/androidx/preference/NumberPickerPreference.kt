@@ -28,7 +28,7 @@ class NumberPickerPreference @JvmOverloads constructor(
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
-    var formatSummary: Boolean = false
+    var formatSummary = false
         set(value) {
             field = value
             notifyChanged()
@@ -49,7 +49,8 @@ class NumberPickerPreference @JvmOverloads constructor(
             superSummary
         }
     }
-    var value: Int = 0
+
+    var value = 0
         set(value) {
             val wasBlocking = shouldDisableDependents()
             field = value
@@ -71,7 +72,7 @@ class NumberPickerPreference @JvmOverloads constructor(
         checkDefaultValue(a.getInt(index, 0))
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        val defValue= (defaultValue?:0) as Int
+        val defValue = (defaultValue ?: 0) as Int
         value = getPersistedInt(checkDefaultValue(defValue))
     }
 
