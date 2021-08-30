@@ -10,7 +10,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.settings_preferences, rootKey)
 
         val numberPickerPreference = findPreference<NumberPickerPreference>("numberpicker")
-        numberPickerPreference?.minValue = 1
+        numberPickerPreference?.minValue = 100
         numberPickerPreference?.maxValue = 15
         numberPickerPreference?.wrapSelectorWheel = true
         numberPickerPreference?.formatSummary = true
