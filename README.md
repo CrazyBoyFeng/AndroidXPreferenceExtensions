@@ -18,7 +18,7 @@ Android library: Extensions of AndroidX Preference.
         app:key="numberpicker"
         app:maxValue="20"
         app:minValue="10"
-        app:summary="%dsheep"
+        app:summary="%s sheep"
         app:title="numberpicker"
         app:wrapSelectorWheel="true" />
     ...
@@ -26,7 +26,7 @@ Android library: Extensions of AndroidX Preference.
 ```
 2. Fragment
 ```java
-import crazyboyfeng.android.preference.PreferenceFragmentCompat
+import crazyboyfeng.android.preference.PreferenceFragmentCompat;
 class MyPreferenceFragment extends PreferenceFragmentCompat {}
 ```
 

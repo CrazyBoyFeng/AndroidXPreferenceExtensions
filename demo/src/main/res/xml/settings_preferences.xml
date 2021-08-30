@@ -12,7 +12,7 @@
         app:key="numberpicker"
         app:maxValue="20"
         app:minValue="10"
-        app:summary="%dsheep"
+        app:summary="%s sheep"
         app:title="numberpicker"
         app:wrapSelectorWheel="false" />
 </PreferenceScreen>
