@@ -33,22 +33,7 @@ class NumberPickerPreference @JvmOverloads constructor(
             field = value
             notifyChanged()
         }
-    var value: Int = 0
-        set(value) {
-            val wasBlocking = shouldDisableDependents()
-            field = value
-            persistInt(value)
-            val isBlocking = shouldDisableDependents()
-            if (isBlocking != wasBlocking) {
-                notifyDependencyChange(isBlocking)
-            }
-            notifyChanged()
-        }
-
-    override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
-        return a.getInt(index, minValue)
-    }
-
+    private var mSummary: CharSequence?
     override fun getSummary(): CharSequence? {
         val superSummary = super.getSummary()
         if (!formatSummary || mSummary == null) {
@@ -64,9 +49,20 @@ class NumberPickerPreference @JvmOverloads constructor(
             superSummary
         }
     }
+    var value: Int = 0
+        set(value) {
+            val wasBlocking = shouldDisableDependents()
+            field = value
+            persistInt(value)
+            val isBlocking = shouldDisableDependents()
+            if (isBlocking != wasBlocking) {
+                notifyDependencyChange(isBlocking)
+            }
+            notifyChanged()
+        }
 
-    override fun onSetInitialValue(defaultValue: Any?) {
-        value = getPersistedInt((defaultValue ?: minValue) as Int)
+    override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
+        return a.getInt(index, minValue)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
