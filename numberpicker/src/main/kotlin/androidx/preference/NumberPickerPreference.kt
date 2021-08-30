@@ -24,7 +24,6 @@ class NumberPickerPreference @JvmOverloads constructor(
         }
     }
 
-    private var mSummary: CharSequence?
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
@@ -33,13 +32,34 @@ class NumberPickerPreference @JvmOverloads constructor(
             field = value
             notifyChanged()
         }
+    var value = 0
+        set(value) {
+            val wasBlocking = shouldDisableDependents()
+            field = value
+            initialed = true
+            persistInt(value)
+            val isBlocking = shouldDisableDependents()
+            if (isBlocking != wasBlocking) {
+                notifyDependencyChange(isBlocking)
+            }
+            notifyChanged()
+        }
+    private var initialed = false
     private var mSummary: CharSequence?
     override fun getSummary(): CharSequence? {
         val superSummary = super.getSummary()
         if (!formatSummary || mSummary == null) {
             return superSummary
         }//formatSummary
-        val output = if (summaryProvider == null) value.toString() else superSummary
+        val output = if (summaryProvider == null) {
+            if (initialed) {
+                value.toString()
+            } else {
+                null
+            }
+        } else {
+            superSummary
+        }
         if (output.isNullOrEmpty()) {
             return output
         }//formatSummaryValue
@@ -49,18 +69,6 @@ class NumberPickerPreference @JvmOverloads constructor(
             superSummary
         }
     }
-
-    var value = 0
-        set(value) {
-            val wasBlocking = shouldDisableDependents()
-            field = value
-            persistInt(value)
-            val isBlocking = shouldDisableDependents()
-            if (isBlocking != wasBlocking) {
-                notifyDependencyChange(isBlocking)
-            }
-            notifyChanged()
-        }
 
     private fun checkDefaultValue(defValue: Int) = when {
         defValue < minValue -> minValue
