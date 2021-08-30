@@ -50,8 +50,8 @@ class NumberPickerPreference @JvmOverloads constructor(
         if (!formatSummary || mSummary == null) {
             return superSummary
         }//formatSummary
-        val output: Any? = if (summaryProvider == null) value else superSummary
-        if (output == null) {
+        val output = if (summaryProvider == null) value.toString() else superSummary
+        if (output.isNullOrEmpty()) {
             return output
         }//formatSummaryValue
         return try {

@@ -29,7 +29,7 @@ class EditTextPreferencePlus @JvmOverloads constructor(
             return superSummary
         }//formatSummary
         val output = if (summaryProvider == null) text else superSummary
-        if (output == null) {
+        if (output.isNullOrEmpty()) {
             return output
         }//formatSummaryValue
         return try {
