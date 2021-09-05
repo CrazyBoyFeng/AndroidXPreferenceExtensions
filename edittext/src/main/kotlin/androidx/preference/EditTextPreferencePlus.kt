@@ -25,6 +25,8 @@ class EditTextPreferencePlus @JvmOverloads constructor(
     private var mSummary: CharSequence?
     var formatSummary: Boolean
     var inputType: Int
+    var hint: CharSequence?
+
     override fun getSummary(): CharSequence? {
         val superSummary = super.getSummary()
         if (!formatSummary || mSummary == null) {
@@ -54,6 +56,7 @@ class EditTextPreferencePlus @JvmOverloads constructor(
             R.styleable.EditTextPreferencePlus_android_inputType,
             InputType.TYPE_NULL
         )
+        hint = typedArray.getString(R.styleable.EditTextPreferencePlus_android_hint)
         mSummary = typedArray.getString(R.styleable.Preference_summary)
         typedArray.recycle()
     }

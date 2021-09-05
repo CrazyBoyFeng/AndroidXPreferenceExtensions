@@ -19,5 +19,6 @@ class EditTextPreferenceDialogFragmentCompatPlus : EditTextPreferenceDialogFragm
         val editText = view.findViewById<EditText>(android.R.id.edit)
         val editTextPreferencePlus = preference as EditTextPreferencePlus
         editText.inputType = editTextPreferencePlus.inputType
+        editText.hint = editTextPreferencePlus.hint
     }
 }
