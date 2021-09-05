@@ -1,6 +1,7 @@
 package androidx.preference
 
 import android.content.Context
+import android.text.InputType
 import android.util.AttributeSet
 import crazyboyfeng.android.preference.EditTextPreferenceDialogFragmentCompatPlus
 import crazyboyfeng.android.preference.edittext.R
@@ -23,6 +24,7 @@ class EditTextPreferencePlus @JvmOverloads constructor(
 
     private var mSummary: CharSequence?
     var formatSummary: Boolean
+    var inputType: Int
     override fun getSummary(): CharSequence? {
         val superSummary = super.getSummary()
         if (!formatSummary || mSummary == null) {
@@ -48,6 +50,10 @@ class EditTextPreferencePlus @JvmOverloads constructor(
         )
         formatSummary =
             typedArray.getBoolean(R.styleable.EditTextPreferencePlus_formatSummary, false)
+        inputType = typedArray.getInt(
+            R.styleable.EditTextPreferencePlus_android_inputType,
+            InputType.TYPE_NULL
+        )
         mSummary = typedArray.getString(R.styleable.Preference_summary)
         typedArray.recycle()
     }

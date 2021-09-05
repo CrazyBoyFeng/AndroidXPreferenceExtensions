@@ -8,6 +8,7 @@ Android library: Extensions of AndroidX Preference.
 <PreferenceScreen>
     ...
     <EditTextPreferencePlus
+        android:inputType="number"
         app:formatSummary="true"
         app:key="edittext"
         app:summary="text is %s!"

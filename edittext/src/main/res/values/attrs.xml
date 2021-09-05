@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="EditTextPreferencePlus">
         <attr name="formatSummary" format="boolean" />
+        <attr name="android:inputType"/>
     </declare-styleable>
 </resources>
