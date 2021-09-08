@@ -54,7 +54,7 @@ class EditTextPreferencePlus @JvmOverloads constructor(
             typedArray.getBoolean(R.styleable.EditTextPreferencePlus_formatSummary, false)
         inputType = typedArray.getInt(
             R.styleable.EditTextPreferencePlus_android_inputType,
-            InputType.TYPE_NULL
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
         )
         hint = typedArray.getString(R.styleable.EditTextPreferencePlus_android_hint)
         mSummary = typedArray.getString(R.styleable.Preference_summary)
