@@ -10,6 +10,7 @@ Android library: Extensions of AndroidX Preference.
     <EditTextPreferencePlus
         android:hint="hint"
         android:inputType="number"
+        android:maxLength="4"
         app:formatSummary="true"
         app:key="edittext"
         app:summary="text is %s!"

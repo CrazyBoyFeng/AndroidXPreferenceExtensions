@@ -4,5 +4,6 @@
         <attr name="formatSummary" format="boolean" />
         <attr name="android:inputType" />
         <attr name="android:hint" />
+        <attr name="android:maxLength" />
     </declare-styleable>
 </resources>

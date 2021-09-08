@@ -4,6 +4,7 @@
     <EditTextPreferencePlus
         android:hint="hint"
         android:inputType="number"
+        android:maxLength="4"
         app:dialogMessage="dialogMessage"
         app:formatSummary="true"
         app:key="edittext"

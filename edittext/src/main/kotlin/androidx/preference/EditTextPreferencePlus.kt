@@ -24,6 +24,7 @@ class EditTextPreferencePlus @JvmOverloads constructor(
 
     private var mSummary: CharSequence?
     var formatSummary: Boolean
+    var maxLength: Int
     var inputType: Int
     var hint: CharSequence?
 
@@ -50,14 +51,16 @@ class EditTextPreferencePlus @JvmOverloads constructor(
             defStyleAttr,
             defStyleRes
         )
+        mSummary = typedArray.getString(R.styleable.Preference_summary)
         formatSummary =
             typedArray.getBoolean(R.styleable.EditTextPreferencePlus_formatSummary, false)
+        maxLength =
+            typedArray.getInt(R.styleable.EditTextPreferencePlus_android_maxLength, Int.MAX_VALUE)
         inputType = typedArray.getInt(
             R.styleable.EditTextPreferencePlus_android_inputType,
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
         )
         hint = typedArray.getString(R.styleable.EditTextPreferencePlus_android_hint)
-        mSummary = typedArray.getString(R.styleable.Preference_summary)
         typedArray.recycle()
     }
 }
