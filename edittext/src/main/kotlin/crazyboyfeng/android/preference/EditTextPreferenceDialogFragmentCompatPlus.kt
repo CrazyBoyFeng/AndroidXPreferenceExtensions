@@ -1,6 +1,5 @@
 package crazyboyfeng.android.preference
 
-import android.content.Context
 import android.os.Bundle
 import android.text.InputFilter
 import android.view.View
@@ -16,13 +15,12 @@ class EditTextPreferenceDialogFragmentCompatPlus : EditTextPreferenceDialogFragm
         arguments = bundle
     }
 
-    override fun onCreateDialogView(context: Context?): View {
-        val view = super.onCreateDialogView(context)
+    override fun onBindDialogView(view: View) {
         val editText = view.findViewById<EditText>(android.R.id.edit)
         val editTextPreferencePlus = preference as EditTextPreferencePlus
         editText.filters += InputFilter.LengthFilter(editTextPreferencePlus.maxLength)
         editText.inputType = editTextPreferencePlus.inputType
         editText.hint = editTextPreferencePlus.hint
-        return view
+        super.onBindDialogView(view)
     }
 }

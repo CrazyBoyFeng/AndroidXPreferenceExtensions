@@ -20,7 +20,6 @@ class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompa
     }
 
     override fun onBindDialogView(view: View) {
-        super.onBindDialogView(view)
         numberPicker = view.findViewById(R.id.number)
         numberPicker!!.requestFocus()
         val numberPickerPreference = preference as NumberPickerPreference
@@ -33,6 +32,7 @@ class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompa
             value = numberPicker!!.minValue
         }
         numberPicker!!.value = value
+        super.onBindDialogView(view)
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {
