@@ -32,6 +32,7 @@ class NumberPickerPreferenceDialogFragmentCompat : PreferenceDialogFragmentCompa
             value = numberPicker!!.minValue
         }
         numberPicker!!.value = value
+        numberPickerPreference.onBindNumberPickerListener?.onBindNumberPicker(numberPicker!!)
         super.onBindDialogView(view)
     }
 

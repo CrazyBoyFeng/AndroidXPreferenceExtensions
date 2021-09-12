@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.AttributeSet
+import android.widget.NumberPicker
 import crazyboyfeng.android.preference.NumberPickerPreferenceDialogFragmentCompat
 import crazyboyfeng.android.preference.numberpicker.R
 import java.util.*
@@ -24,6 +25,22 @@ class NumberPickerPreference @JvmOverloads constructor(
         }
     }
 
+    /**
+     * Interface definition for a callback to be invoked when the corresponding dialog view for
+     * this preference is bound. This allows you to customize the [NumberPicker] displayed
+     * in the dialog, such as setting a max length or a specific input type.
+     */
+    interface OnBindNumberPickerListener {
+        /**
+         * Called when the dialog view for this preference has been bound, allowing you to
+         * customize the [NumberPicker] displayed in the dialog.
+         *
+         * @param numberPicker The [NumberPicker] displayed in the dialog
+         */
+        fun onBindNumberPicker(numberPicker: NumberPicker)
+    }
+
+    val onBindNumberPickerListener: OnBindNumberPickerListener? = null
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
