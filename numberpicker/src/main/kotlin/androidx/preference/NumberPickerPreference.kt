@@ -30,7 +30,7 @@ class NumberPickerPreference @JvmOverloads constructor(
      * this preference is bound. This allows you to customize the [NumberPicker] displayed
      * in the dialog, such as setting a max length or a specific input type.
      */
-    interface OnBindNumberPickerListener {
+    fun interface OnBindNumberPickerListener {
         /**
          * Called when the dialog view for this preference has been bound, allowing you to
          * customize the [NumberPicker] displayed in the dialog.
