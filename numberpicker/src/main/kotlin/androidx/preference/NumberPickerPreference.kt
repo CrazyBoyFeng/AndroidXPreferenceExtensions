@@ -40,7 +40,7 @@ class NumberPickerPreference @JvmOverloads constructor(
         fun onBindNumberPicker(numberPicker: NumberPicker)
     }
 
-    val onBindNumberPickerListener: OnBindNumberPickerListener? = null
+    var onBindNumberPickerListener: OnBindNumberPickerListener? = null
     var minValue: Int
     var maxValue: Int
     var wrapSelectorWheel: Boolean
