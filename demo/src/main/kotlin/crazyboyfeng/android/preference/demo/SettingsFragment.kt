@@ -14,6 +14,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
         numberPickerPreference?.maxValue = 15
         numberPickerPreference?.wrapSelectorWheel = true
         numberPickerPreference?.formatSummary = true
+        numberPickerPreference?.onBindNumberPickerListener =
+            NumberPickerPreference.OnBindNumberPickerListener {
+                it.value = 50
+            }
 
         val editTextPreferencePlus = findPreference<EditTextPreferencePlus>("edittext")
         editTextPreferencePlus?.formatSummary = true
